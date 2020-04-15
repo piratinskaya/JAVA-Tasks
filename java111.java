@@ -1,13 +1,15 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class Сonditional {
+public class Conditional {
     public static void first() {
         Scanner in = new Scanner(System.in);
+        System.out.println("task1");
         System.out.println("Enter first number: ");
         int input = in.nextInt();
 
@@ -30,6 +32,7 @@ public class Сonditional {
 
     public static void second (){
         Scanner in = new Scanner(System.in);
+        System.out.println("task2");
         System.out.println("Enter first number: ");
 
         float salary = in.nextFloat();
@@ -47,6 +50,7 @@ public class Сonditional {
 
     public static void third(){
         Scanner in = new Scanner(System.in);
+        System.out.println("task3");
         System.out.println("Enter point A: ");
 
         int x1 = in.nextInt();
@@ -72,7 +76,7 @@ public class Сonditional {
 
     public static void fourth(){
         Scanner in = new Scanner(System.in);
-        System.out.println("");
+        System.out.println("task4");
 
         int a = in.nextInt();
         int b = in.nextInt();
@@ -89,7 +93,7 @@ public class Сonditional {
 
     public static void fives(){
         Scanner in = new Scanner(System.in);
-        System.out.println("");
+        System.out.println("task5");
 
         int a = in.nextInt();
         int b = in.nextInt();
@@ -281,21 +285,152 @@ public class Сonditional {
         System.out.println("--------------------------");
     }
 
-    public static void main(String[] args){
-        //  first();
-        //  second();
-        //  third();
-        //  fourth();
-        //  fives();
-        //  six();
+    public void loop1_1() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("task1");
+        List<Integer> resList = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            int numSum = getNumSum(i);
+            if (i % 3 == 0 && i % 5 != 0 && numSum % 3 == 0 && numSum % 5 != 0) {
+                resList.add(i);
+            }
+        }
+        System.out.println(resList);
+        System.out.println("--------------------------");
+    }
 
-        //array1();
-        //array2();
-        //array3();
-        //array4();
-        //array5();
-        //array6();
-        //array7();
+    public void loop1_2() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("task2");
+        int n = scanner.nextInt();
+
+        List<Integer> resList = IntStream.rangeClosed(0, n).boxed()
+                .filter(i -> i % 5 == 0).collect(Collectors.toList());
+
+        System.out.println(resList);
+        System.out.println("--------------------------");
+    }
+
+    public void loop1_3() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("task3");
+        int num = scanner.nextInt();
+
+        while (num != 1 && num % 2 == 0) {
+            num /= 2;
+        }
+
+        System.out.println(num == 1 ? "YES" : "NO");
+        System.out.println("--------------------------");
+    }
+
+    public void loop1_4() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("task4");
+        int n = scanner.nextInt();
+        List<Integer> resList = new ArrayList<>();
+        resList.add(0);
+        resList.add(1);
+
+        for (int i = 1; resList.get(i) < n; i++) {
+            resList.add(resList.get(i) + resList.get(i - 1));
+        }
+
+        resList.remove(resList.size() - 1);
+
+        System.out.println(resList);
+        System.out.println("--------------------------");
+    }
+
+    public void loop2_1() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("task1");
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+
+        List<Integer> resList = IntStream.rangeClosed(a, b).boxed()
+                .collect(Collectors.toList());
+
+        int n = resList.size();
+
+        System.out.println("list: " + resList);
+        System.out.println("size: " + n);
+        System.out.println("--------------------------");
+    }
+
+    public void loop2_2() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("task2");
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+
+        List<Integer> resList = IntStream.rangeClosed(a, b).boxed()
+                .sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+
+        int n = resList.size();
+
+        System.out.println("list: " + resList);
+        System.out.println("size: " + n);
+        System.out.println("--------------------------");
+    }
+
+    public void loop2_3() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("task3");
+        int a = scanner.nextInt();
+        int n = scanner.nextInt();
+
+        int res = a;
+
+        for (int i = 1; i < n; i++) {
+            res *= a;
+        }
+
+        System.out.println(res);
+        System.out.println("--------------------------");
+    }
+
+    public void loop2_4() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("task4");
+        int a = scanner.nextInt();
+        int n = scanner.nextInt();
+
+        List<Integer> resList = new ArrayList<>();
+
+        for (int i = 1; i < n + 1; i++) {
+            resList.add((int) Math.pow(a, i));
+        }
+
+        System.out.println(resList);
+        System.out.println("--------------------------");
+    }
+
+    public static void main(String[] args){
+        // first();
+        // second();
+        // third();
+        // fourth();
+        // fives();
+        // six();
+
+        // loop1_1
+        // loop1_2
+        // loop1_3
+        // loop1_4
+
+        // loop2_1
+        // loop2_2
+        // loop2_3
+        // loop2_4
+
+        // array1();
+        // array2();
+        // array3();
+        // array4();
+        // array5();
+        // array6();
+        // array7();
 
     }
 
